@@ -11,7 +11,7 @@ HeatMap.AllComparisons.RI <- function(RI, drug.names, threshold){
   
   
   ## Load libraries
-  list.of.packages <- c("ggplot2")
+  list.of.packages <- c("ggplot2", "reshape")
   lapply(list.of.packages, require, character.only = TRUE); rm(list.of.packages)
   
   
