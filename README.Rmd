@@ -57,7 +57,7 @@ The robustness index is specific to the pairwise comparison. Therefore, we can c
 
 ## Heatmap on Robustness Index 
 
-We propose the heatmap as a useful tool to illustrate the robustness index for all possible comparisons of interventions in the investigated network. We use green and red colours to indicate the comparisons with presence and lack of robustness, respectively. Make sure that you have already installed the R package [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) and [reshape](http://had.co.nz/reshape/) to be able to use the proposed function.
+We propose the heatmap as a useful tool to illustrate the robustness index for all possible comparisons of interventions in the investigated network. We use green and red colours to indicate the comparisons with presence and lack of robustness, respectively. Make sure that you have already installed the R package [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) and [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) to be able to use the proposed function.
 To create the __heatmap on robustness index__, we have developed the function `HeatMap.AllComparisons.RI()` which has the following syntax:
 
 ```r
