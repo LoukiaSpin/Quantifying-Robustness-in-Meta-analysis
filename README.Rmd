@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 In our article __"Quantifying the robustness of primary analysis results: a case study on missing outcome data in pairwise and network meta-analysis"__ we propose the robustness index alongside a novel decision framework to infer the robustness of the primary analysis results. 
 
-The __robustness index__ quantifies the overall deviation of the primary analysis from alternative analyses regarding the summary treatment effect of a pairwise comparison of interventions. Being a function of the __Kullback-Leibler Divergence__ measure, the robustness index ranges from zero to infinity, with zero indicating a perfect match of the summary treatment effect under the primary analysis and _all_ alternative analyses. In a sense, the further away the robustness index is from zero, the more difficult it is to defend the robustness of the primary analysis results to alternative analyses. 
+The __robustness index__ quantifies the overall deviation of the alternative analyses from the primary analysis regarding the summary treatment effect of a pairwise comparison of interventions. Being a function of the __Kullback-Leibler Divergence__ measure, the robustness index ranges from zero to infinity, with zero indicating a perfect match of the summary treatment effect under the primary analysis and _all_ alternative analyses. In a sense, the further away the robustness index is from zero, the more difficult it is to defend the robustness of the primary analysis results to alternative analyses. 
 
 To conclude on the presence or lack of robustness of the primary analysis results, we compare the robustness index with the __threshold of robustness__ that we have specified using an intuitive and objective rule. 
 
