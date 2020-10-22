@@ -68,7 +68,7 @@ The function  `HeatMap.AllComparisons.RI()` returns a lower triangular heatmap m
 
 The outcome-specific thresholds mentioned above refer to the corresponding square root of __the median of the empirically-based priors for the between-trial variance__ [1, 2]. We consider this median to reflect __low statistical heterogeneity__, and hence, an _acceptable_ overall deviation of the alternative analyses from the primary analysis. 
 
-#### References> 
+#### References 
 
 1. Turner RM, Jackson D, Wei Y, Thompson SG, Higgins JP. Predictive distributions for between-study heterogeneity and simple methods for their application in Bayesian meta-analysis. Stat Med. 2015; 34(6):984–98. 
 2. Rhodes KM, Turner RM, Higgins JP. Predictive distributions were developed for the extent of heterogeneity in meta-analyses of continuous outcome data. J Clin Epidemiol. 2015; 68(1):52–60. 
