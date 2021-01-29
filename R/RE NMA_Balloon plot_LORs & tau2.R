@@ -15,14 +15,14 @@ library("ggpubr")
 
 
 ## Load functions
-source("R/BalloonPlot_Sensitivity analysis_ES.R")
-source("R/BalloonPlot_Sensitivity analysis_tau2.R")
+source("Quantifying-Robustness-in-Meta-analysis/R/BalloonPlot_Sensitivity analysis_ES.R")
+source("Quantifying-Robustness-in-Meta-analysis/R/BalloonPlot_Sensitivity analysis_tau2.R")
 
 
 
 ## Load database as dataframe (each row is a trial)
-(LOR <- read.table("data/NMA-MOD_LOR.txt", head = T)[, 2:5])
-(tau2 <- read.table("data/NMA-MOD_tausq.txt", head = T)[, 2:5])
+(LOR <- read.table("Quantifying-Robustness-in-Meta-analysis/data/NMA-MOD_LOR.txt", head = T)[, 2:5])
+(tau2 <- read.table("Quantifying-Robustness-in-Meta-analysis/data/NMA-MOD_tausq.txt", head = T)[, 2:5])
 drug.names <- c("placebo", "budesodine", "budesodine plus formoterol", "fluticasone", 
                 "fluticasone plus salmeterol", "formoterol", "salmeterol", "tiotropium") # PBO is the reference
 drug.names.tau2 <- c("placebo", "active")
