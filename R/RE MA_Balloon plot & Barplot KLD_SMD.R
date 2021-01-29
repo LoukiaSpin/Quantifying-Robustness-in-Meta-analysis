@@ -10,16 +10,16 @@
 
 
 ## Load functions
-source("R/BalloonPlot_Sensitivity analysis_ES.R")
-source("R/BalloonPlot_Sensitivity analysis_tau2.R")
-source("R/KLD & Robustness Index.R")               # Estimate the Robustness Index for each scenario and comparison
-source("R/Barplot KLD_All scenarios.R")          
+source("Quantifying-Robustness-in-Meta-analysis/R/BalloonPlot_Sensitivity analysis_ES.R")
+source("Quantifying-Robustness-in-Meta-analysis/R/BalloonPlot_Sensitivity analysis_tau2.R")
+source("Quantifying-Robustness-in-Meta-analysis/R/KLD & Robustness Index.R")               # Estimate the Robustness Index for each scenario and comparison
+source("Quantifying-Robustness-in-Meta-analysis/R/Barplot KLD_All scenarios.R")          
 
 
 
 ## Load necessary estimated model parameters (Bayesian RE-MA results)
-(SMD <- read.table("data/MA-MOD_SMD.txt", head = T)[, 2:5])
-(tau2 <- read.table("data/MA-MOD_tausq.txt", head = T)[, 2:5])
+(SMD <- read.table("Quantifying-Robustness-in-Meta-analysis/data/MA-MOD_SMD.txt", head = T)[, 2:5])
+(tau2 <- read.table("Quantifying-Robustness-in-Meta-analysis/data/MA-MOD_tausq.txt", head = T)[, 2:5])
 drug.names <- c("placebo", "inositol") 
 
 
