@@ -27,12 +27,9 @@ nt <- 2
 
 ## Index of Robustness  
 (RI <- RobustnessIndex(SMD, primary.scenar = 13, nt = nt)$RI)
-(KLD <- RobustnessIndex(SMD, primary.scenar = 13, nt = nt)$kldxy)
 
 
 
-## Panel of KLD plots for all scenarios in SMD
-KLD.plots(SMD, primary.scenar = 13, compar = 1, "continuous", drug.names)
 
 
 
