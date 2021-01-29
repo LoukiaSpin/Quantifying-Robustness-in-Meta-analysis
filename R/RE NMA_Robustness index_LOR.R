@@ -15,14 +15,14 @@ lapply(list.of.packages, require, character.only = TRUE); rm(list.of.packages)
 
 
 ## Load functions
-source("R/KLD & Robustness Index.R")     # Estimate the Robustness Index for each scenario and comparison
-source("R/Heatmap D_All comparisons.R")  # Lower triangular heatmap matrix (Makes sense for NMA)
-source("R/KLD plots_All scenarios.R")    # Panel of KLD.xy plots for all scenarios of one comparison (Makes sense for MA or for one reference-comparison in NMA)
+source("Quantifying-Robustness-in-Meta-analysis/R/KLD & Robustness Index.R")     # Estimate the Robustness Index for each scenario and comparison
+source("Quantifying-Robustness-in-Meta-analysis/R/Heatmap D_All comparisons.R")  # Lower triangular heatmap matrix (Makes sense for NMA)
+source("Quantifying-Robustness-in-Meta-analysis/R/KLD plots_All scenarios.R")    # Panel of KLD.xy plots for all scenarios of one comparison (Makes sense for MA or for one reference-comparison in NMA)
 
 
 
 ## Load database as dataframe (each row is a trial)
-(LOR <- read.table("data/NMA-MOD_LOR.txt", head = T)[, 2:3])
+(LOR <- read.table("Quantifying-Robustness-in-Meta-analysis/data/NMA-MOD_LOR.txt", head = T)[, 2:3])
 drug.names <- c("placebo", "budesodine", "budesodine plus formoterol", "fluticasone", 
                 "fluticasone plus salmeterol", "formoterol", "salmeterol", "tiotropium") # PBO is the reference
 nt <- length(drug.names)
