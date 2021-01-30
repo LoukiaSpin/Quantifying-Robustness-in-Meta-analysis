@@ -8,11 +8,7 @@
 
 
 HeatMap.AllComparisons.RI <- function(RI, drug.names, threshold){
-  
-  
-  ## Load libraries
-  list.of.packages <- c("ggplot2", "reshape2")
-  lapply(list.of.packages, require, character.only = TRUE); rm(list.of.packages)
+
   
   
   ## Lower triangular heatmap matrix - Comparisons are read from the left to the right 
