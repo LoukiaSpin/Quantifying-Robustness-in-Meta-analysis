@@ -1,9 +1,8 @@
-###############################################################################################
-#                                                                                             #
-#         A heatmap on Robustness Index for all possible comparisons of interventions         #
-#                            (Suitable for network meta-analysis)                             #
-#                                                                                             #
-###############################################################################################
+#----------------------------------------------------------------------------------------------------------------------------
+#     R code to create the heatmap on Robustness Index for all possible comparisons of interventions in the network
+#     Author: Loukia Spineli
+#     Date: October 2020
+#----------------------------------------------------------------------------------------------------------------------------
 
 
 
