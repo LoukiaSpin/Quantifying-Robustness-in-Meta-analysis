@@ -5,7 +5,7 @@
 #                      (Dias et al., 2013 in Appendix  - PMID: 23104435)                      #
 #            Pattern-mixture model with Informative Missingness Odds Ratio (IMOR)             #
 #                           (Turner et al., 2015 - PMID: 25809313)                            #
-#      <Hierarchical, intervention-specific log IMOR under missing at random assumption>      #
+#           <Hierarchical, intervention-specific log IMOR under different scenarios>          #
 #                                                                                             #
 ###############################################################################################
 
