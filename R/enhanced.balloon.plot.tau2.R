@@ -2,7 +2,7 @@
 #     R code to create the 'enhanced balloon plot' for the between-trial variance under all re-analyses
 #         <For pairwise meta-analysis & network meta-analysis (assuming common between-trial variance)>
 #     Author: Loukia Spineli
-#     Date:   October 2020
+#     Date: December 2020
 #----------------------------------------------------------------------------------------------------------------------------
 
 
