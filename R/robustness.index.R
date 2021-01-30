@@ -1,9 +1,9 @@
-###################################################################################################################
-#                                                                                                                 #
-#           - A function to obtain the Kullback-Leibler Divergence (comparing two normal distributions)           #                 
-#           - A function to obtain the Robustness Index for each possible comparison of interventions             #
-#                                                                                                                 #
-###################################################################################################################
+#----------------------------------------------------------------------------------------------------------------------------
+#     R code to obtain the Kullback-Leibler Divergence (comparing two normal distributions)
+#     R code to obtain the Robustness Index for each possible comparison of interventions
+#     Author: Loukia Spineli
+#     Date: October 2020
+#----------------------------------------------------------------------------------------------------------------------------
 
 
 
