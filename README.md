@@ -12,7 +12,7 @@ To conclude on the presence or lack of robustness of the primary analysis result
 
 ## Description of the repository
 
-This repository hosts the codes for the proposed functions. All proposed functions can be found in the R folder alongside the R script, _Figures_Reproducible_, to reproduce the figures in the main text and supplementary material of the article. The data folder contains XX
+This repository hosts the codes for the proposed functions. All proposed functions can be found in the R folder alongside the R script, _Figures_Reproducible_, to reproduce the figures in the main text and supplementary material of the article. The data folder contains the text script with the necessary results to apply the poposed functions. We are interested on the summary treatment effect and between-trial variance for each missingness scenario. The results have been obtained by performing Bayesian random-effect pairwise meta-analysis (for the continuous outcome measured using the standardised mean difference) and network meta-analysis (for the binary outcome measured using the odds ratio in the logarithmic scale) with the incorporation of the pattern-mixture model.
 
 The next sections briefly illustrate the functions of our novel decision framework for robustness of the primary analysis results with emphasis on the summary treatment effects: the `RobustnessIndex()`, and the `HeatMap.AllComparisons.RI()`.
 
