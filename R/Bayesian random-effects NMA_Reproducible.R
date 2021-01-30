@@ -1,13 +1,11 @@
-#####################################################################################################################
-#                                                                                                                   #
-#                Perform random-effects Bayesian network meta-analysis for aggregate binary outcomes                # 
-#                                 <Binomial likelihood, logit link, Random Effects>                                 # 
-#                                 (Dias et al., 2013 in Appendix  - PMID: 23104435)                                 #    
-#          One-stage pattern-mixture model with Informative Missingness Odds Ratio under several scenarios          #
-#                                       (Turner et al., 2015 - PMID: 25809313)                                      #
-#                                <Hierarchical, intervention-specific prior log IMOR>                               #
-#                                                                                                                   #
-#####################################################################################################################
+#----------------------------------------------------------------------------------------------------------------------------
+#     R code to perform random-effects Bayesian network meta-analysis with consistency for aggregate binary outcomes 
+#               <Binomial likelihood, logit link, Random Effects> in Dias et al., 2013 in Appendix (PMID: 23104435)  
+#               One-stage pattern-mixture model with Informative Missingness Odds Ratio under several scenarios 
+#               <Hierarchical, intervention-specific prior log IMOR> in Turner et al., 2015 (PMID: 25809313)
+#     Author: Loukia Spineli
+#     Date: October 2020
+#----------------------------------------------------------------------------------------------------------------------------
 
 
 
