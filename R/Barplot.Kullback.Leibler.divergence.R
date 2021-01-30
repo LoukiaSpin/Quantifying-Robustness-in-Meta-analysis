@@ -8,7 +8,7 @@
 
 
 
-Barplot.KLD <- function(KLD, outcome, title){
+Barplot.KLD <- function(KLD, outcome, title, ylimit){
  
   
   if(outcome == "binary"){
@@ -47,7 +47,7 @@ Barplot.KLD <- function(KLD, outcome, title){
     facet_grid(. ~  plausibility, scales = "free_x", space = "free") +
     labs(x = "Scenarios (active vs control)", y = "Kullback-Leibler divergence measure", fill = "Distance between the scenarios") + 
     #geom_hline(yintercept = 0.28, linetype = 2) + 
-    ylim(0, 0.3) +
+    ylim(0, ylimit) +
     ggtitle(title) + 
     theme_classic() +
     theme(axis.title = element_text(size = 12, face = "bold"), axis.text = element_text(size = 10.5), axis.text.x = element_text(size = 10.5, angle = 45, hjust = 1),
