@@ -1,11 +1,9 @@
-#######################################################################################################################
-#                                                                                                                     #
-#                      Function to create the 'enhanced balloon plot' for Between-trial Variance                      # 
-#                       <Illustrate all combinations of scenarios about the missingness process>                      #
-#                                 (For pairwise meta-analysis & network meta-analysis)                                #
-#                                                                                                                     #
-#######################################################################################################################
-
+#----------------------------------------------------------------------------------------------------------------------------
+#     R code to create the 'enhanced balloon plot' for the between-trial variance under all re-analyses
+#         <For pairwise meta-analysis & network meta-analysis (assuming common between-trial variance)>
+#     Author: Loukia Spineli
+#     Date:   October 2020
+#----------------------------------------------------------------------------------------------------------------------------
 
 
 BalloonPlot.Sensitivity.tau2 <- function(tau2.mat, extent, outcome, drug.names){  
