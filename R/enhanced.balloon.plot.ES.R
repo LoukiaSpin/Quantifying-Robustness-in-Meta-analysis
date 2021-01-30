@@ -65,7 +65,7 @@ BalloonPlot.Sensitivity.ES <- function(ES.mat, compar, outcome, direction, drug.
   ## Create the proposed balloon plot (separately, for binary and continuous outcomes)
   if(outcome == "binary"){
     
-    bubble <- ggplot(mat, aes(x = active, y = control, color = sd.value, label = sprintf("%.2f", exp(value)))) +
+    bubble <- ggplot(mat, aes(x = active, y = control, color = sd.value, label = sprintf("%#.2f", exp(value)))) +
                 geom_rect(mapping = aes(NULL, NULL, xmin = 1, xmax = 5), ymin = 1, ymax = 5, color = "grey93", fill = "grey93", alpha = 0.1) +
                 geom_rect(mapping = aes(NULL, NULL, xmin = 2, xmax = 4), ymin = 2, ymax = 4, color = "grey100", fill = "grey100", alpha = 0.1) +
                 geom_point(aes(size = ES.normalised[, compar]), stroke = 2, shape = ifelse(signif[, compar] == "yes", "circle", "circle plus")) +  
@@ -86,7 +86,7 @@ BalloonPlot.Sensitivity.ES <- function(ES.mat, compar, outcome, direction, drug.
     
   } else {
 
-    bubble <- ggplot(mat, aes(x = active, y = control, color = sd.value, label = sprintf("%.2f", value))) +
+    bubble <- ggplot(mat, aes(x = active, y = control, color = sd.value, label = sprintf("%#.2f", value))) +
                 geom_rect(mapping = aes(NULL, NULL, xmin = 1, xmax = 5), ymin = 1, ymax = 5, color = "grey93", fill = "grey93", alpha = 0.1) +
                 geom_rect(mapping = aes(NULL, NULL, xmin = 2, xmax = 4), ymin = 2, ymax = 4, color = "grey100", fill = "grey100", alpha = 0.1) +
                 geom_point(aes(size = ES.normalised[, compar]), stroke = 2, shape = ifelse(signif[, compar] == "yes", "circle", "circle plus")) +
