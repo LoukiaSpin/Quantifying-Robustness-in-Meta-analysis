@@ -1,6 +1,6 @@
 #######################################################################################################################
 #                                                                                                                     #
-#                  Function to create the 'enhanced balloon plot'Balloonplot for an Effect Estimate                   # 
+#                        Function to create the 'enhanced balloon plot' for an Effect Estimate                        # 
 #          <Illustrate all combinations of scenarios about the missingness process in ONE pairwise comparison>        #
 #                   (For pairwise meta-analysis & network meta-analysis (one comparison at a time))                   #
 #                                                                                                                     #
