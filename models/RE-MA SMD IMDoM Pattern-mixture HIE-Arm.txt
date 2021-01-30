@@ -1,0 +1,72 @@
+###################################################################################################################### 
+#                                                                                                                    #
+#                            Random-effects pairwise meta-analysis for continuous outcome                            #
+#                                        (Dias et al., 2012 – PMID: 23104435)                                        #
+#                    Standardized Mean Difference and Informative Missingness Difference of Means                    #   
+#      One-stage pattern-mixture model with Informative Missingness Difference of Means under several scenarios      #
+#                                      (Spineli et al., 2020 - PMID: 33406990)                                       #
+#                                 <Hierarchical, intervention-specific prior IMDoM>                                  #  
+#                                                                                                                    #
+######################################################################################################################
+
+
+
+model{
+    for(i in 1:ns){                                                       # loop through trials
+      theta[i, 1] <- u[i]
+      u[i] ~ dnorm(0, 0.0001)
+      a[i] <- sum(N[i, 1:2] - 1)/2
+      b[i] <- sum(N[i, 1:2] - 1)/(2*sigma[i]*sigma[i])
+      var.pooled[i] ~ dgamma(a[i], b[i])                                  # Gamma likelihood for the pooled variance in trial i (PMID: 21394888)
+      sd.pooled[i] <- sqrt(var.pooled[i])
+
+      for(k in 1:2){                                                      # loop through all arms in trial i
+        prec.o[i, k] <- pow(se.o[i, k], -2)                               # observed precision of the outcome
+        y.o[i, k] ~ dnorm(theta.o[i, k], prec.o[i, k])                    # normal likelihood for the oberved mean of the outcome
+        m[i, k] ~ dbin(q[i, k], N[i, k])                                  # binomial likelihood for missing outcome data (MOD)
+        q[i, k] ~ dunif(0, 1)                                             # uniform likelihood for the probability of MOD
+
+        theta.o[i, k] <- theta[i, k] - phi[i, k]*q[i, k]                  # linking equation for Informative Missingness Difference of Means (IMDoM)
+        phi[i, k] ~ dnorm(mean.imdom[t[i, k]], prec.imdom[t[i, k]])       # hierarchical, intervetion-specific IMDoM
+
+        dev.o[i, k] <- (y.o[i, k] - theta.o[i, k])*(y.o[i, k] -           # Deviance contribution (observed data; PMID: 23104435)
+                        theta.o[i, k])*prec.o[i, k]
+        m0[i, k] <- m[i, k] + 0.01*equals(m[i, k], 0)                     # Correction for zero MOD in arm k od trial i (PMID: 25809313) 
+        rhat.m[i, k] <- q[i, k]*N[i, k]                                   # Expected value of numerators (missing data; PMID: 25809313)
+        dev.m[i, k] <- 2*(m0[i, k]*(log(m0[i, k]) - log(rhat.m[i, k])) +  # Deviance contribution (MOD; PMID: 25809313)
+                       (N[i, k] - m0[i, k])*(log(N[i, k] - m0[i, k]) - 
+                       log(N[i, k] - rhat.m[i, k])))
+                     }
+
+      resdev.o[i] <- sum(dev.o[i, 1:2])                                   # Summed residual deviance contribution for this trial (observed data; PMID: 23104435)
+      resdev.m[i] <- sum(dev.m[i, 1:2])                                   # Summed residual deviance contribution for this trial (MOD; PMID: 25809313)
+                                            
+      theta[i, 2] <- u[i] + sd.pooled[i]*delta[i, 2]                      # link function for standardized mean difference (SMD)
+      delta[i, 2] ~ dnorm(SMD, prec)                                      # within-trial true SMD (random-effect)
+                   }
+
+    totresdev.o <- sum(resdev.o[])                                        # Total Residual Deviance (observed data; PMID: 23104435)
+    totresdev.m <- sum(resdev.m[])                                        # Total Residual Deviance (MOD; PMID: 25809313)
+
+    SMD ~ dnorm(0, 0.0001)                                                # normal distribution for SMD
+
+    ## Prior consideration on hyperparameters of hierarchical, intervention-specific IMDoM
+    # Scenario for the control intervention
+    mean.imdom[1] ~ dnorm(imdom[2], psi.imdom)
+    prec.imdom[1] <- pow(sd.imdom[1], -2)
+    sd.imdom[1] ~ dunif(0, psi.imdom)
+    tausq.imdom[1] <- pow(sd.imdom[1], 2)
+
+    # Scenario for the active intervention
+    mean.imdom[2] ~ dnorm(imdom[1], psi.imdom)
+    prec.imdom[2] <- pow(sd.imdom[2], -2)
+    sd.imdom[2] ~ dunif(0, psi.imdom)
+    tausq.imdom[2] <- pow(sd.imdom[2], 2)
+
+    ## Empirical log-t distribution prior on between-trial variance (mental health outcome; pharmacological vs placebo)
+    prec <- 1/tausq
+    tausq <- exp(log.tausq)
+    log.tausq ~ dt(mean.tausq, prec.tausq, 5) 
+     }  
+
+                              

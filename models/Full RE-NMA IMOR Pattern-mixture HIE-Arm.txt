@@ -1,0 +1,130 @@
+###############################################################################################
+#                                                                                             #
+#       Random-effects NMA model with consistency and accommodation of multi-arm trials       #
+#                      <Binomial likelihood, logit link, Random Effects>                      #
+#                      (Dias et al., 2013 in Appendix  - PMID: 23104435)                      #
+#            Pattern-mixture model with Informative Missingness Odds Ratio (IMOR)             #
+#                           (Turner et al., 2015 - PMID: 25809313)                            #
+#      <Hierarchical, intervention-specific log IMOR under missing at random assumption>      #
+#                                                                                             #
+###############################################################################################
+
+model{
+    for(i in 1:ns){
+      w[i, 1] <- 0
+
+      ## Baseline log odds of event
+      logit(p[i, 1]) <- u[i] 
+      u[i] ~ dnorm(0, .0001)
+
+      for(k in 1:na[i]){  
+        ## Observed events and likelihood per arm
+        r[i, k] ~ dbin(p_o[i, k], obs[i, k])
+        obs[i, k] <- n[i, k] - mod[i, k]
+        p_o[i, k] <- max(0, min(1, ((-((q[i, k] - p[i, k])*(1 - delta[i, k]) - 1) - sqrt((pow(((q[i, k] - p[i, k])*(1 - delta[i, k]) - 1), 2)) - 
+                                   ((4*p[i, k])*(1 - q[i, k])*(1 - delta[i, k]))))/(2*(1 - q[i, k])*(1 - delta[i, k]))))) 
+
+        ## Missing participants and likelihood per arm
+        mod[i, k] ~ dbin(q[i, k], n[i, k])
+        q[i, k] ~ dunif(0, 1)
+  
+        ## Hierarchical, intervention-specific logIMOR 
+        log(delta[i, k]) <- phi[i, k]
+        phi[i, k] ~ dnorm(mean.phi[t[i, k]], prec.phi[t[i, k]])
+
+        rhat[i, k] <- p_o[i, k]*obs[i, k]                                 # Expected value of numerators (observed data; PMID: 25809313)
+        dev.o[i, k] <- 2*(r[i, k]*(log(r[i, k]) - log(rhat[i, k]))        # Deviance contribution (observed data; PMID: 23104435)
+                       + (obs[i, k] - r[i, k])*(log(obs[i, k] - r[i, k]) 
+                       - log(obs[i, k] - rhat[i, k]))) 
+        m0[i, k] <- mod[i, k] + 0.01*equals(mod[i, k], 0)                 # Correction for zero MOD in arm k od trial i (PMID: 25809313) 
+        rhat.m[i, k] <- q[i, k]*n[i, k]                                   # Expected value of numerators (missing data; PMID: 25809313)
+        dev.m[i, k] <- 2*(m0[i, k]*(log(m0[i, k]) - log(rhat.m[i, k])) +  # Deviance contribution (MOD; PMID: 25809313)
+                       (n[i, k] - m0[i, k])*(log(n[i, k] - m0[i, k]) - 
+                       log(n[i, k] - rhat.m[i, k])))
+                    }
+
+      resdev.o[i] <- sum(dev.o[i, 1:2])                                   # Summed residual deviance contribution for this trial (observed data; PMID: 23104435)
+      resdev.m[i] <- sum(dev.m[i, 1:2])                                   # Summed residual deviance contribution for this trial (MOD; PMID: 25809313)
+
+    for(k in 2:na[i]){
+      logit(p[i, k]) <- u[i] + theta[i, k]
+      theta[i, k] ~ dnorm(md[i, k], precd[i, k])
+      md[i, k] <- d[t[i, k]] - d[t[i, 1]] + sw[i, k]
+      w[i, k] <- theta[i, k] - (d[t[i, k]] - d[t[i, 1]])
+      sw[i, k] <- sum(w[i, 1:(k - 1)])/(k - 1)
+      precd[i, k] <- 2*(k - 1)*prec/k
+                     }
+                 }
+
+    totresdev.o <- sum(resdev.o[])                                        # Total Residual Deviance (observed data; PMID: 23104435)
+    totresdev.m <- sum(resdev.m[])                                        # Total Residual Deviance (MOD; PMID: 25809313)
+
+    ## Prior consideration on hyperparameters of hierarchical, intervention-specific logIMOR
+    # Scenario for the reference intervention
+    mean.phi[ref] ~ dnorm(logimor[2], prec.logimor)
+    prec.phi[ref] <- pow(sd.phi[ref], -2)
+    sd.phi[ref] ~ dunif(0, psi.logimor)
+
+    # Scenario for the non-reference interventions
+    for(t in 1:(ref - 1)){
+      mean.phi[t] ~ dnorm(logimor[1], prec.logimor)
+      prec.phi[t] <- pow(sd.phi[t], -2)
+      sd.phi[t] ~ dunif(0, psi.logimor)
+                  }
+
+    for(t in (ref + 1):nt){
+      mean.phi[t] ~ dnorm(logimor[1], prec.logimor)
+      prec.phi[t] <- pow(sd.phi[t], -2)
+      sd.phi[t] ~ dunif(0, psi.logimor)
+                  }
+
+    ## Basic parameters - prior distributions
+    d[ref] <- 0
+    for(t in 1:(ref - 1)){
+      d[t] ~ dnorm(0, .0001)
+                         }
+
+    for(t in (ref + 1):nt){
+      d[t] ~ dnorm(0, .0001)
+                          }
+
+    ## Ranking probabilities and SUCRA values
+    sorted <- rank(d[])
+    for(t in 1:nt){
+      order[t] <- (nt + 1 - sorted[t])*equals(D, 1) + sorted[t]*(1 - equals(D, 1))  # D = 1 positive, D = 0 negative
+      most.effective[t] <- equals(order[t], 1)
+
+      for(l in 1:nt){
+        effectiveness[t, l] <- equals(order[t], l)
+        cumeffectiveness[t, l] <- sum(effectiveness[t, 1:l])
+                     }
+
+      SUCRA[t] <- sum(cumeffectiveness[t, 1:(nt - 1)])/(nt - 1)
+                   }  
+
+
+    ## Collect results on reference-comparisons
+    for(t in 1:(ref - 1)){
+      LOR.ref[t] <- d[t] - d[ref]
+                         }
+
+    for(t in (ref + 1):nt){
+      LOR.ref[t] <- d[t] - d[ref]
+                         }
+
+    ## Collect all pairwise results
+    for(c in 1:(nt - 1)){
+      for(k in (c + 1):nt){
+        LOR[k, c] <- d[k] - d[c]
+                          }
+                         }  
+
+    ## Prior specifications on between-trial variance
+    prec <- pow(tausq, -1)
+    tausq ~ dlnorm(mean.tausq, prec.tausq)
+    } # END OF MODEL
+
+
+
+
+
