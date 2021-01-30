@@ -10,13 +10,13 @@ To conclude on the presence or lack of robustness of the primary analysis result
 
 ## Description of the repository
 
-This repository hosts the functions to calculate the __robustness index__, and obtain the __enhanced balloon plot__ and __heatmap of robustness__. All proposed functions can be found in the R folder alongside the R script, _Figures_Reproducible_, to reproduce the figures in the main text and supplementary material of the article. The data folder contains the text scripts with the necessary results to apply the proposed functions. We are interested in the summary treatment effect and between-trial variance for each re-analysis. In the present article, we compared the missing at random assumption to different informative missingness scenarios. The (data) results have been obtained by performing Bayesian random-effects pairwise meta-analysis (for the continuous outcome measured using the standardised mean difference) and network meta-analysis (for the binary outcome measured using the odds ratio in the logarithmic scale) with the incorporation of the pattern-mixture model. We also provide the R script to replicate both analyses. [JAGS](http://mcmc-jags.sourceforge.net/) must be installed to employ the [R2jags](https://github.com/suyusung/R2jags/issues/) package. The user should open the titular Project (.Proj) to use the functions and data straightforwardly. 
+This repository hosts the functions to calculate the __robustness index__, and obtain the __enhanced balloon plot__ and __heatmap of robustness__. All proposed functions can be found in the R folder alongside the R script, _Figures_Reproducible_, to reproduce the figures in the main text and supplementary material of the article. The data folder contains the text scripts with the necessary results to apply the proposed functions. We are interested in the summary treatment effect and between-trial variance for each re-analysis. In the present article, we compared the missing at random assumption to different informative missingness scenarios. The (data) results have been obtained by performing Bayesian random-effects pairwise meta-analysis (for the continuous outcome measured using the standardised mean difference) and network meta-analysis (for the binary outcome measured using the odds ratio in the logarithmic scale) with the incorporation of the pattern-mixture model. We also provide the R script to replicate both analyses. [JAGS](http://mcmc-jags.sourceforge.net/) must be installed to employ the [R2jags](https://github.com/suyusung/R2jags/issues/) package. First, the user should open the titular Project (.Proj) to use the functions and data straightforwardly. 
 
 The next sections briefly illustrate the functions of our novel decision framework for robustness of the primary analysis results with emphasis on the summary treatment effects: the `RobustnessIndex()`, and the `HeatMap.AllComparisons.RI()`.
 
 ## Robustness Index 
 
-To calculate the __robustness index__, we have developed the function `RobustnessIndex()` which has the following syntax:
+To calculate the __robustness index__ for the summary treatment effects, we have developed the function `RobustnessIndex()` which has the following syntax:
 
 ```r
 RobustnessIndex(ES.mat, primary.scenar, nt)
@@ -86,9 +86,9 @@ The proposed plot can be also obtained straightforwardly when a __two-stage patt
 
 ## Enhanced balloon plot
 
-The function to create the enhanced balloon plot is `BalloonPlot.Sensitivity.ES()`. 
+The function to create the enhanced balloon plot for the summaary treatment effects is `BalloonPlot.Sensitivity.ES()`.
 
-Make sure that you have already installed the R package [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) to be able to use the proposed function. The function  `BalloonPlot.Sensitivity.ES()` has the following syntax:
+Make sure that you have already installed the R package [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) to be able to use the proposed function. The function `BalloonPlot.Sensitivity.ES()` has the following syntax:
 
 ```r
 BalloonPlot.Sensitivity.ES(ES.mat, compar, outcome, direction, drug.names)
@@ -107,7 +107,11 @@ comparison <- matrix(combn(drug.names, 2), nrow = length(combn(drug.names, 2))/2
 
 ### Important notes 
 
-The __enhanced balloon plot__ is relevant for every important parameter of the model. For a pairwise meta-analysis, the summary treatment effect and the between-trial variance (under a random-effects model) are the parameters of interest. For a network meta-analysis, the inconsistency factor from the node-splitting approach [1], and the surface under the cumulative ranking curve [2] are additinal parameters of interest. However, the current function is only applicable for the summary treatment effects. In the next version of the `BalloonPlot.Sensitivity.ES()` we will consider other model parameters, as well.
+We provide a separate function to create the __enhanced ballon plot for the between-trial variance__, `BalloonPlot.Sensitivity.tau2()`, and it has the same arguments with the `BalloonPlot.Sensitivity.ES()` function, except for dropping the argument __compar__ and replacing the argument __direction__ with __extent__ to indicate whether there is low statistical heterogeneity (i.e. posterior median of the between-trial variance < median of the selected empirically-based prior distribution for that parameter) or considerable.
+
+The __enhanced balloon plot__ is relevant for every important parameter of the model. For a pairwise meta-analysis, the summary treatment effect and the between-trial variance (under a random-effects model) are the parameters of interest. For a network meta-analysis, the inconsistency factor from the node-splitting approach [1], and the surface under the cumulative ranking curve [2] are additinal parameters of interest. However, the current functions are only applicable for the summary treatment effects and between-trial variance (assumed common in network meta-analysis). In the next version of the `BalloonPlot.Sensitivity.ES()` we will consider other model parameters, as well.
+
+Last but not least, we are working on bringing all the functions into an R package that will also allow for the joint synthesis of observed and missing outcomes in each trial's arm. 
 
 #### References
 
