@@ -2,7 +2,7 @@
 #                                                                                                                    #
 #                            Random-effects pairwise meta-analysis for continuous outcome                            #
 #                                        (Dias et al., 2012 – PMID: 23104435)                                        #
-#                    Standardized Mean Difference and Informative Missingness Difference of Means                    #   
+#             Standardised Mean Difference (extension of normal likelihood, identity link of Dias et al.)            #   
 #      One-stage pattern-mixture model with Informative Missingness Difference of Means under several scenarios      #
 #                                      (Spineli et al., 2021 - PMID: 33406990)                                       #
 #                                 <Hierarchical, intervention-specific prior IMDoM>                                  #  
