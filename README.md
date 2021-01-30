@@ -52,7 +52,7 @@ HeatMap.AllComparisons.RI(RI, drug.names, threshold)
 
 * RI: A vector with the __robustness index__ (RI) calculated for all pairwise comparisons. You need to use, first, the `RobustnessIndex()` function. 
 * drug.names: A vector with __the names of the interventions__ compared. The interventions should be in the same order that you considered to run pairwise or network meta-analysis. This is important particularly in the case of network meta-analysis so that you do not match the robustness index with the wrong comparisons.
-* threshold: This refers to __the threshold of robustness__. Use __0.17 for a continuous outcome__, or __0.28 for a binary outcome__. You may consider more stringent thresholds, if you wish; however, do not exceed the aforementioned 'default' values, as they represent substantial deviations from the primary analysis, and they may signal spurious robustness.
+* threshold: This refers to __the threshold of robustness__. Use __0.17 for a continuous outcome__, or __0.28 for a binary outcome__. You may consider more stringent thresholds, if you wish and if they are considered to be clinically plausible.
 
 ### Output of the function
 
