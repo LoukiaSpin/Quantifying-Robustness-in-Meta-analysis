@@ -10,11 +10,7 @@
 
 BalloonPlot.Sensitivity.tau2 <- function(tau2.mat, extent, outcome, drug.names){  
   
-  
-  ## Load necessary libraries
-  library("ggplot2")
-
-  
+    
   ## Define the number of the scenarios 
   scenarios <- c(1, 2, 3, 4, 5) 
 
