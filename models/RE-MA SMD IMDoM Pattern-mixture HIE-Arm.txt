@@ -1,10 +1,10 @@
 ###################################################################################################################### 
 #                                                                                                                    #
 #                            Random-effects pairwise meta-analysis for continuous outcome                            #
-#                                        (Dias et al., 2012 – PMID: 23104435)                                        #
+#                                        (Dias et al., 2012 â€“ PMID: 23104435)                                        #
 #                    Standardized Mean Difference and Informative Missingness Difference of Means                    #   
 #      One-stage pattern-mixture model with Informative Missingness Difference of Means under several scenarios      #
-#                                      (Spineli et al., 2020 - PMID: 33406990)                                       #
+#                                      (Spineli et al., 2021 - PMID: 33406990)                                       #
 #                                 <Hierarchical, intervention-specific prior IMDoM>                                  #  
 #                                                                                                                    #
 ######################################################################################################################
