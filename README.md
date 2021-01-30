@@ -2,13 +2,15 @@
 
 # A novel decision framework for robustness 
 
+## Description
+
 In our article __"Quantifying the robustness of primary analysis results: a case study on missing outcome data in pairwise and network meta-analysis"__ we propose the robustness index alongside a novel decision framework to infer the robustness of the primary analysis results. 
 
 The __robustness index__ quantifies the overall deviation of alternative analyses from the primary analysis regarding the summary treatment effect of a pairwise comparison of interventions. Being a function of the __Kullback-Leibler Divergence__ measure, the robustness index ranges from zero to infinity, with zero indicating a perfect match of the summary treatment effect under the primary analysis and _all_ alternative analyses. In a sense, the further away the robustness index is from zero, the more difficult it is to defend the robustness of the primary analysis results to alternative analyses. 
 
 To conclude on the presence or lack of robustness of the primary analysis results, we compare the robustness index with the __threshold of robustness__ that we have specified using an intuitive and objective rule. 
 
-## Description of the repository
+## The roadmap of the repository
 
 This repository hosts the functions to calculate the __robustness index__, and obtain the __enhanced balloon plot__ and __heatmap of robustness__. All proposed functions can be found in the R folder alongside the R script, _Figures_Reproducible_, to reproduce the figures in the main text and supplementary material of the article. The data folder contains the text scripts with the necessary results to apply the proposed functions. We are interested in the summary treatment effect and between-trial variance for each re-analysis. In the present article, we compared the missing at random assumption to different informative missingness scenarios. The (data) results have been obtained by performing Bayesian random-effects pairwise meta-analysis (for the continuous outcome measured using the standardised mean difference) and network meta-analysis (for the binary outcome measured using the odds ratio in the logarithmic scale) with the incorporation of the pattern-mixture model. We also provide the R script to replicate both analyses. [JAGS](http://mcmc-jags.sourceforge.net/) must be installed to employ the [R2jags](https://github.com/suyusung/R2jags/issues/) package. First, the user should open the titular Project (.Proj) to use the functions and data straightforwardly. 
 
