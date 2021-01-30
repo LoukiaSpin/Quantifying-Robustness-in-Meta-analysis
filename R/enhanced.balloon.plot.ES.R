@@ -9,10 +9,6 @@
 
 
 BalloonPlot.Sensitivity.ES <- function(ES.mat, compar, outcome, direction, drug.names){  # Check heatmap to decide on the 'compar'
-  
-  
-  ## Load necessary libraries
-  library("ggplot2")
 
   
   ## Define the position and number of the scenarios 
