@@ -92,7 +92,7 @@ BalloonPlot.Sensitivity.ES <- function(ES.mat, compar, outcome, direction, drug.
                 geom_point(aes(size = ES.normalised[, compar]), stroke = 2, shape = ifelse(signif[, compar] == "yes", "circle", "circle plus")) +
                 scale_size(range = c(0, 30)) +
                 geom_text(colour = "black", fontface = "bold", size = 4.5) +
-                geom_label(aes(3, 3), colour = "black", fontface = "bold",  size = 4.5) +
+                geom_label(aes(3, 3, label = round(exp(mat[13, 3]), 2)), colour = "black", fontface = "bold",  size = 4.5) +
                 scale_color_gradient(low = "deepskyblue", high = "brown1") +
                 scale_x_continuous(breaks = c(1, 2, 3, 4, 5), labels = c("-2", "-1", "0", "1", "2"), position = "bottom", expand = c(0.2, 0)) +
                 scale_y_continuous(breaks = c(1, 2, 3, 4, 5), labels = c("-2", "-1", "0", "1", "2"), expand = c(0.2, 0)) +
