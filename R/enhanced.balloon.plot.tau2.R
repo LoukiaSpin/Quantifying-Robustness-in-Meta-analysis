@@ -1,8 +1,8 @@
 #######################################################################################################################
 #                                                                                                                     #
-#                 Function to create the 'enhanced balloon plot'Balloonplot for Between-trial Variance                # 
-#          <Illustrate all combinations of scenarios about the missingness process in ONE pairwise comparison>        #
-#                   (For pairwise meta-analysis & network meta-analysis (one comparison at a time))                   #
+#                      Function to create the 'enhanced balloon plot' for Between-trial Variance                      # 
+#                       <Illustrate all combinations of scenarios about the missingness process>                      #
+#                                 (For pairwise meta-analysis & network meta-analysis)                                #
 #                                                                                                                     #
 #######################################################################################################################
 
