@@ -9,9 +9,7 @@
 
 
 Barplot.KLD <- function(KLD, outcome, title){
-  
-  require(ggplot2); require("ggthemes")
-  
+ 
   
   if(outcome == "binary"){
     
