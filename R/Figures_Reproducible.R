@@ -84,7 +84,7 @@ drug.names.tau2 <- c("placebo", "active")
 
 
 # Figure 3: Heatmap on robustness index per possible comparison
-HeatMap.AllComparisons.RI(RI.NMA, drug.names.NMA, 0.28)    # Robustness thresold equals 0.28
+HeatMap.AllComparisons.RI(RI.NMA, drug.names.NMA, 0.28)    # Robustness threshold equals 0.28
 
 
 
@@ -98,7 +98,6 @@ HeatMap.AllComparisons.RI(RI.NMA, drug.names.NMA, 0.28)    # Robustness thresold
 
 # Bring all plots together (4 by 2 matrix)
 ggarrange(p4, p5, p6, p7, ncol = 2, nrow = 2, common.legend = T, legend = "bottom")
-dev.off()
 
 
 
