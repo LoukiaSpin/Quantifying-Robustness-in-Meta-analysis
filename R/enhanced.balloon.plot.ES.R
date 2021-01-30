@@ -2,7 +2,7 @@
 #     R code to create the 'enhanced balloon plot' for the summary treatment effect under all re-analyses
 #         <For pairwise meta-analysis & network meta-analysis (one comparison at a time)>
 #     Author: Loukia Spineli
-#     Date:   October 2020
+#     Date: October 2020
 #----------------------------------------------------------------------------------------------------------------------------
 
 
