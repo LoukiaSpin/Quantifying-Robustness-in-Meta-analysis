@@ -9,7 +9,7 @@
 
 
 ## Load necessary libraries
-list.of.packages <- c("ggplot2", "ggthemes", "reshape2")
+list.of.packages <- c("ggplot2", "ggthemes", "reshape2", "ggpubr")
 lapply(list.of.packages, require, character.only = TRUE); rm(list.of.packages)
 
 
@@ -19,6 +19,7 @@ source("./R/enhanced.balloon.plot.ES.R")
 source("./R/enhanced.balloon.plot.tau2.R")
 source("./R/robustness.index.R")               
 source("./R/Barplot.Kullback.Leibler.divergence.R")  
+source("./R/heatmap.R") 
 
 
 
@@ -47,7 +48,7 @@ drug.names <- c("placebo", "inositol")
 
 
 # Figure 2B: Bar-plot of KLD measure for all scenarios
-(p2 <- Barplot.KLD(unlist(KLD), outcome = "continuous", title = "") + theme(plot.title = element_blank()))
+(p2 <- Barplot.KLD(unlist(KLD), outcome = "continuous", title = "", ylimit = 0.30) + theme(plot.title = element_blank()))
 
 
 
@@ -90,10 +91,10 @@ HeatMap.AllComparisons.RI(RI.NMA, drug.names.NMA, 0.28)    # Robustness thresold
 
 
 # Figure 4: Bar-plot of KLD measure for the four comparisons with lack of robustness 
-(p4 <- Barplot.KLD(KLD.NMA[[3]], outcome = "binary", title = "Fluticasone vs placebo") + theme(axis.title.x = element_blank()))
-(p5 <- Barplot.KLD(KLD.NMA[[4]], outcome = "binary", title = "Fluticasone plus salmeterol vs placebo") + theme(axis.title = element_blank()))
-(p6 <- Barplot.KLD(KLD.NMA[[5]], outcome = "binary", title = "Formoterol vs placebo"))
-(p7 <- Barplot.KLD(KLD.NMA[[7]], outcome = "binary", title = "Tiotropium vs placebo") + theme(axis.title.y = element_blank()))
+(p4 <- Barplot.KLD(KLD.NMA[[3]], outcome = "binary", title = "Fluticasone vs placebo", ylimit = 0.35) + theme(axis.title.x = element_blank()))
+(p5 <- Barplot.KLD(KLD.NMA[[4]], outcome = "binary", title = "Fluticasone plus salmeterol vs placebo", ylimit = 0.35) + theme(axis.title = element_blank()))
+(p6 <- Barplot.KLD(KLD.NMA[[5]], outcome = "binary", title = "Formoterol vs placebo", ylimit = 0.35))
+(p7 <- Barplot.KLD(KLD.NMA[[7]], outcome = "binary", title = "Tiotropium vs placebo", ylimit = 0.35) + theme(axis.title.y = element_blank()))
 
 
 
