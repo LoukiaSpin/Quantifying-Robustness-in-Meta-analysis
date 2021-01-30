@@ -1,0 +1,9 @@
+y1      y2      sd1     sd2     m1      m2      c1      c2      n1      n2    t1     t2
+28.9    21.6    10      10      4       8       15      13      19      21     1     2 
+-7.2    -7.4    7.1     6.4     2       0       10      12      12      12     1     2
+18.6    20.4    11      13      4       5       14      13      18      18     1     2
+19.8    21.7    8.6     11      1       5       18      18      19      23     1     2
+
+# Drugs' names
+# 1: placebo, 2: inositol. 
+# Outcome: Mean change in Hamilton Rating Scale for Depression
