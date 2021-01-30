@@ -1,13 +1,12 @@
-######################################################################################################################
-#                                                                                                                    #
-#                  Perform random-effects Bayesian meta-analysis for aggregate continuous outcomes                   # 
-#                                 <Normal likelihood, identity link, Random Effects>                                 # 
-#                                 (Dias et al., 2013 in Appendix  - PMID: 23104435)                                  #    
-#      One-stage pattern-mixture model with Informative Missingness Difference of Means under several scenarios      #
-#                                       (Spineli et al., 2020 - PMID: 33406990)                                      #
-#                                 <Hierarchical, intervention-specific prior IMDoM>                                  #
-#                                                                                                                    #
-######################################################################################################################
+#----------------------------------------------------------------------------------------------------------------------------
+#     R code to perform random-effects Bayesian pairwise meta-analysis for aggregate continuous outcomes 
+#               <Normal likelihood, identity link, Random Effects> in Dias et al., 2013 in Appendix (PMID: 23104435)  
+#                           Standardised Mean Difference after extending the aforementioned model
+#               One-stage pattern-mixture model with Informative Missingness Difference of Means under several scenarios 
+#               <Hierarchical, intervention-specific prior IMDoM> in Spineli et al., 2021 (PMID: 33406990)
+#     Author: Loukia Spineli
+#     Date: October 2020
+#----------------------------------------------------------------------------------------------------------------------------
 
 
 
