@@ -2,8 +2,6 @@
 
 # A novel decision framework for robustness 
 
-## Description
-
 In our article __"Quantifying the robustness of primary analysis results: a case study on missing outcome data in pairwise and network meta-analysis"__ we propose the robustness index alongside a novel decision framework to infer the robustness of the primary analysis results. 
 
 The __robustness index__ quantifies the overall deviation of alternative analyses from the primary analysis regarding the summary treatment effect of a pairwise comparison of interventions. Being a function of the __Kullback-Leibler Divergence__ measure, the robustness index ranges from zero to infinity, with zero indicating a perfect match of the summary treatment effect under the primary analysis and _all_ alternative analyses. In a sense, the further away the robustness index is from zero, the more difficult it is to defend the robustness of the primary analysis results to alternative analyses. 
@@ -12,7 +10,7 @@ To conclude on the presence or lack of robustness of the primary analysis result
 
 ## Description of the repository
 
-This repository hosts the codes for the proposed functions. All proposed functions can be found in the R folder alongside the R script, _Figures_Reproducible_, to reproduce the figures in the main text and supplementary material of the article. The data folder contains the text script with the necessary results to apply the poposed functions. We are interested on the summary treatment effect and between-trial variance for each missingness scenario. The results have been obtained by performing Bayesian random-effect pairwise meta-analysis (for the continuous outcome measured using the standardised mean difference) and network meta-analysis (for the binary outcome measured using the odds ratio in the logarithmic scale) with the incorporation of the pattern-mixture model.
+This repository hosts the codes for the proposed functions. All proposed functions can be found in the R folder alongside the R script, _Figures_Reproducible_, to reproduce the figures in the main text and supplementary material of the article. The data folder contains the text scripts with the necessary results to apply the proposed functions. We are interested in the summary treatment effect and between-trial variance for each missingness scenario. The results have been obtained by performing Bayesian random-effects pairwise meta-analysis (for the continuous outcome measured using the standardised mean difference) and network meta-analysis (for the binary outcome measured using the odds ratio in the logarithmic scale) with the incorporation of the pattern-mixture model. We also provide the R script to replicate the analysis. [JAGS] (http://mcmc-jags.sourceforge.net/) must be installed to employ the [R2jags] (https://github.com/suyusung/R2jags/issues/) package. The user should open the titular Project (.Proj) to use the functions and data straightforwardly. 
 
 The next sections briefly illustrate the functions of our novel decision framework for robustness of the primary analysis results with emphasis on the summary treatment effects: the `RobustnessIndex()`, and the `HeatMap.AllComparisons.RI()`.
 
@@ -88,7 +86,7 @@ The proposed plot can be also obtained straightforwardly when a __two-stage patt
 
 ## Enhanced balloon plot
 
-The function to create the enhanced balloon plot is `BalloonPlot.Sensitivity.ES()`, and it is also found in the __package__ [Quantifying-Robustness-in-Meta-analysis](https://github.com/LoukiaSpin/Quantifying-Robustness-in-Meta-analysis/). 
+The function to create the enhanced balloon plot is `BalloonPlot.Sensitivity.ES()`. 
 
 Make sure that you have already installed the R package [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) to be able to use the proposed function. The function  `BalloonPlot.Sensitivity.ES()` has the following syntax:
 
