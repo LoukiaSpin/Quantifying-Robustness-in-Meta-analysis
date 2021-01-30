@@ -10,14 +10,10 @@ The __robustness index__ quantifies the overall deviation of alternative analyse
 
 To conclude on the presence or lack of robustness of the primary analysis results, we compare the robustness index with the __threshold of robustness__ that we have specified using an intuitive and objective rule. 
 
-## Installation 
+## Description of the repository
 
-You can download the __package__ with the proposed functions directly from [GitHub](https://github.com/LoukiaSpin/Quantifying-Robustness-in-Meta-analysis/) or use the R package [devtools](https://cran.r-project.org/web/packages/devtools/index.html):
+This repository hosts the codes for the proposed functions. All proposed functions can be found in the R folder alongside the R script, _Figures_Reproducible_, to reproduce the figures in the main text and supplementary material of the article. The data folder contains XX
 
-```r
-install.packages("devtools")
-devtools::install_github("LoukiaSpin/Quantifying-Robustness-in-Meta-analysis", build_vignettes = T)
-```
 The next sections briefly illustrate the functions of our novel decision framework for robustness of the primary analysis results with emphasis on the summary treatment effects: the `RobustnessIndex()`, and the `HeatMap.AllComparisons.RI()`.
 
 ## Robustness Index 
