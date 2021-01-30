@@ -1,18 +1,13 @@
-###############################################################################################
-#                                                                                             #
-#         A heatmap on Robustness Index for all possible comparisons of interventions         #
-#                            (Suitable for network meta-analysis)                             #
-#                                                                                             #
-###############################################################################################
+#----------------------------------------------------------------------------------------------------------------------------
+#     R code to create the heatmap on Robustness Index for all possible comparisons of interventions in the network
+#     Author: Loukia Spineli
+#     Date: October 2020
+#----------------------------------------------------------------------------------------------------------------------------
 
 
 
 HeatMap.AllComparisons.RI <- function(RI, drug.names, threshold){
   
-  
-  ## Load libraries
-  list.of.packages <- c("ggplot2", "reshape2")
-  lapply(list.of.packages, require, character.only = TRUE); rm(list.of.packages)
   
   
   ## Lower triangular heatmap matrix - Comparisons are read from the left to the right 
