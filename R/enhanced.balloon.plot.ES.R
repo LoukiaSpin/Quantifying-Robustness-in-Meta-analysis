@@ -1,10 +1,9 @@
-#######################################################################################################################
-#                                                                                                                     #
-#                        Function to create the 'enhanced balloon plot' for an Effect Estimate                        # 
-#          <Illustrate all combinations of scenarios about the missingness process in ONE pairwise comparison>        #
-#                   (For pairwise meta-analysis & network meta-analysis (one comparison at a time))                   #
-#                                                                                                                     #
-#######################################################################################################################
+#----------------------------------------------------------------------------------------------------------------------------
+#     R code to create the 'enhanced balloon plot' for the summary treatment effect under all re-analyses
+#         <For pairwise meta-analysis & network meta-analysis (one comparison at a time)>
+#     Author: Loukia Spineli
+#     Date:   October 2020
+#----------------------------------------------------------------------------------------------------------------------------
 
 
 
