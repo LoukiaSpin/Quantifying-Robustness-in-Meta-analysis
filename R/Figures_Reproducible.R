@@ -17,7 +17,7 @@ source("./R/enhanced.balloon.plot.ES.R")
 source("./R/enhanced.balloon.plot.tau2.R")
 source("./R/KLD & Robustness Index.R")               
 source("./R/Barplot.Kullback.Leibler.divergence.R")  
-source("./R/Heatmap D_All comparisons.R") 
+source("./R/heatmap.nma.R") 
 
 
 
