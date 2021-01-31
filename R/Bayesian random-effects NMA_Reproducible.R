@@ -83,5 +83,9 @@ traplot(jagsfit.mcmc, c("LOR[2,1]", "tausq"))
 (LOR <- do.call(rbind,lapply(1:length(logimor[, 1]), function(i) jagsfit[[i]]$BUGSoutput$summary[1:(nt*(nt - 1)/2), c("mean", "sd", "2.5%", "97.5%", "Rhat", "n.eff")])))
 (tausq <- do.call(rbind,lapply(1:length(logimor[, 1]), function(i) jagsfit[[i]]$BUGSoutput$summary["tausq", c("50%", "sd", "2.5%", "97.5%", "Rhat", "n.eff")])))
 
-## Save the results as txt using write.table()!
+                               
+                               
+## Save the results as txt using write.table()
+write.table(round(LOR, 4), file = "./NMA-MOD_LOR.txt", sep = "\t", quote = F)
+write.table(round(tausq, 4), file = "./NMA-MOD_tausq.txt", sep = "\t", quote = F)
 
