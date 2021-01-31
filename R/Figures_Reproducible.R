@@ -96,7 +96,7 @@ HeatMap.AllComparisons.RI(RI.NMA, drug.names.NMA, 0.28)    # Robustness threshol
 
 
 
-# Bring all plots together (4 by 2 matrix)
+# Bring all bar-plots together 
 ggarrange(p4, p5, p6, p7, ncol = 2, nrow = 2, common.legend = T, legend = "bottom")
 
 
@@ -109,12 +109,12 @@ ggarrange(p4, p5, p6, p7, ncol = 2, nrow = 2, common.legend = T, legend = "botto
 
 
 
-# Figure 5: Bring all plots together 
+# Figure 5: Bring all balloon-plots together 
 ggarrange(p8, p11, p10, p9, ncol = 2, nrow = 2, labels = c("A)", "B)", "C)", "D)"))
 
 
 
-# Supplementary Figure S3: Enhanced balloon-plot for tau2
+# Supplementary Figure S3: Enhanced balloon-plot for tau2 (assumed common in the network)
 extent.NMA <- summary(rlnorm(1000, -2.06, 1.51))[3]  # Median of empirically-based prior for 'symptoms reflecting the continuation of condition' and 'pharma vs placebo' [Turner et al. 2015 - PMID: 25475839]
 (p12 <- BalloonPlot.Sensitivity.tau2(tau2.common, extent.NMA, "binary", drug.names.tau2))
 
