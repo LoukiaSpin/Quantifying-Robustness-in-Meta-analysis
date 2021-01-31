@@ -84,6 +84,8 @@ traplot(jagsfit.mcmc, c("SMD", "tausq"))
 (SMD <- do.call(rbind,lapply(1:length(imdom[, 1]), function(i) jagsfit[[i]]$BUGSoutput$summary["SMD", c("mean", "sd", "2.5%", "97.5%", "Rhat", "n.eff")])))
 (tausq <- do.call(rbind,lapply(1:length(imdom[, 1]), function(i) jagsfit[[i]]$BUGSoutput$summary["tausq", c("50%", "sd", "2.5%", "97.5%", "Rhat", "n.eff")])))
 
-## Save the results as txt using write.table()!
-
-
+                               
+                               
+## Save the results as txt using write.table()
+write.table(round(SMD, 4), file = "./MA-MOD_SMD.txt", sep = "\t", quote = F)
+write.table(round(tausq, 4), file = "./MA-MOD_tausq.txt", sep = "\t", quote = F)
