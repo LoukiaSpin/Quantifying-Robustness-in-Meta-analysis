@@ -48,9 +48,9 @@ Barplot.KLD <- function(KLD, outcome, title, ylimit){
     ylim(0, ylimit) +
     ggtitle(title) + 
     theme_classic() +
-    theme(axis.title = element_text(size = 12, face = "bold"), axis.text = element_text(size = 10.5), axis.text.x = element_text(size = 10.5, angle = 45, hjust = 1),
-          legend.position = "bottom", legend.title = element_text(size = 12, face = "bold"), legend.text = element_text(size = 11),
-          strip.text = element_text(size = 12), plot.title = element_text(size = 14, face = "bold", hjust = 0.5))
+    theme(axis.title = element_text(size = 14, face = "bold"), axis.text = element_text(size = 11), axis.text.x = element_text(size = 11, angle = 45, hjust = 1),
+          legend.position = "bottom", legend.title = element_text(size = 13, face = "bold"), legend.text = element_text(size = 12),
+          strip.text = element_text(size = 14), plot.title = element_text(size = 14, face = "bold", hjust = 0.5))
   
   return(barplot)
 }
