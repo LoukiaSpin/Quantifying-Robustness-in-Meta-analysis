@@ -15,7 +15,7 @@ lapply(list.of.packages, require, character.only = TRUE); rm(list.of.packages)
 ## Load functions
 source("./R/enhanced.balloon.plot.ES.R")
 source("./R/enhanced.balloon.plot.tau2.R")
-source("./R/KLD & Robustness Index.R")               
+source("./R/kld.robustness.index.R")               
 source("./R/Barplot.Kullback.Leibler.divergence.R")  
 source("./R/heatmap.nma.R") 
 
