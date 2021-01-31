@@ -51,8 +51,8 @@ BalloonPlot.Sensitivity.tau2 <- function(tau2.mat, extent, outcome, drug.names){
                 geom_rect(mapping = aes(NULL, NULL, xmin = 2, xmax = 4), ymin = 2, ymax = 4, color = "grey100", fill = "grey100", alpha = 0.1) +
                 geom_point(aes(size = tau2.normalised), stroke = 2, shape = ifelse(extent.tau2 == "low", "circle", "circle plus")) +  
                 scale_size(range = c(0, 30)) +
-                geom_text(colour = "black", fontface = "bold", size = 4.5) +
-                geom_label(aes(3, 3, label = round(mat[13, 3], 3)), colour = "black", fontface = "bold",  size = 4.5) +
+                geom_text(colour = "black", fontface = "bold", size = 5) +
+                geom_label(aes(3, 3, label = round(mat[13, 3], 3)), colour = "black", fontface = "bold",  size = 5) +
                 scale_color_gradient(low = "deepskyblue", high = "brown1") +
                 scale_x_continuous(breaks = c(1, 2, 3, 4, 5), labels = c("1/3", "1/2", "1", "2", "3"), position = "bottom", expand = c(0.2, 0)) +
                 scale_y_continuous(breaks = c(1, 2, 3, 4, 5), labels = c("1/3", "1/2", "1", "2", "3"), expand = c(0.2, 0)) +
@@ -60,10 +60,10 @@ BalloonPlot.Sensitivity.tau2 <- function(tau2.mat, extent, outcome, drug.names){
                 labs(x = paste("IMOR scenario in", drug.names[2]), y = paste("IMOR scenario in", drug.names[1]), color = "") +
                 guides(shape = F, size = F) + 
                 theme_bw() +
-                theme(axis.text.x = element_text(size = 12, angle = 360, vjust = 0.8, hjust = 0.5), axis.text.y = element_text(size = 12, vjust = 0.5, hjust = 1),
-                      axis.title.x = element_text(size = 12, face = "bold"), axis.title.y = element_text(size = 12, angle = 90, face = "bold"), 
-                      legend.position = "bottom", legend.text = element_text(size = 10), legend.key.width = unit(1.5, "cm"),
-                      legend.title = element_text(size = 12, face = "bold"), panel.grid.minor = element_blank(), panel.background = element_rect(fill = "grey86"))     
+                theme(axis.text.x = element_text(size = 14, angle = 360, vjust = 0.8, hjust = 0.5), axis.text.y = element_text(size = 14, vjust = 0.5, hjust = 1),
+                      axis.title.x = element_text(size = 14, face = "bold"), axis.title.y = element_text(size = 14, angle = 90, face = "bold"), 
+                      legend.position = "bottom", legend.text = element_text(size = 12), legend.key.width = unit(1.5, "cm"),
+                      legend.title = element_text(size = 14, face = "bold"), panel.grid.minor = element_blank(), panel.background = element_rect(fill = "grey86"))     
     
   } else {
 
@@ -72,8 +72,8 @@ BalloonPlot.Sensitivity.tau2 <- function(tau2.mat, extent, outcome, drug.names){
                 geom_rect(mapping = aes(NULL, NULL, xmin = 2, xmax = 4), ymin = 2, ymax = 4, color = "grey100", fill = "grey100", alpha = 0.1) +
                 geom_point(aes(size = tau2.normalised), stroke = 2, shape = ifelse(extent.tau2 == "low", "circle", "circle plus")) +
                 scale_size(range = c(0, 30)) +
-                geom_text(colour = "black", fontface = "bold", size = 4.5) +
-                geom_label(aes(3, 3, label = round(mat[13, 3], 3)), colour = "black", fontface = "bold",  size = 4.5) +
+                geom_text(colour = "black", fontface = "bold", size = 5) +
+                geom_label(aes(3, 3, label = round(mat[13, 3], 3)), colour = "black", fontface = "bold",  size = 5) +
                 scale_color_gradient(low = "deepskyblue", high = "brown1") +
                 scale_x_continuous(breaks = c(1, 2, 3, 4, 5), labels = c("-2", "-1", "0", "1", "2"), position = "bottom", expand = c(0.2, 0)) +
                 scale_y_continuous(breaks = c(1, 2, 3, 4, 5), labels = c("-2", "-1", "0", "1", "2"), expand = c(0.2, 0)) +
@@ -81,10 +81,10 @@ BalloonPlot.Sensitivity.tau2 <- function(tau2.mat, extent, outcome, drug.names){
                 labs(x = paste("IMDoM scenario in", drug.names[2]), y = paste("IMDoM scenario in", drug.names[1]), color = "") +
                 guides(shape = F, size = F) + 
                 theme_bw() +
-                theme(axis.text.x = element_text(size = 12, angle = 360, vjust = 0.8, hjust = 0.5), axis.text.y = element_text(size = 12, vjust = 0.5, hjust = 1),
-                      axis.title.x = element_text(size = 12, face = "bold"), axis.title.y = element_text(size = 12, angle = 90, face = "bold"), 
-                      legend.position = "bottom", legend.text = element_text(size = 10), legend.key.width = unit(1.5, "cm"),
-                      legend.title = element_text(size = 12, face = "bold"), panel.grid.minor = element_blank(), panel.background = element_rect(fill = "grey86")) 
+                theme(axis.text.x = element_text(size = 14, angle = 360, vjust = 0.8, hjust = 0.5), axis.text.y = element_text(size = 14, vjust = 0.5, hjust = 1),
+                      axis.title.x = element_text(size = 14, face = "bold"), axis.title.y = element_text(size = 14, angle = 90, face = "bold"), 
+                      legend.position = "bottom", legend.text = element_text(size = 12), legend.key.width = unit(1.5, "cm"),
+                      legend.title = element_text(size = 14, face = "bold"), panel.grid.minor = element_blank(), panel.background = element_rect(fill = "grey86")) 
     
   }
   
