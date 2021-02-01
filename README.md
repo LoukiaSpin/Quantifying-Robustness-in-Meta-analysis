@@ -1,6 +1,6 @@
 ***
 
-# A novel decision framework for robustness 
+# A novel decision framework for robustness of primary analysis' results
 
 ## Description of the repository
 
