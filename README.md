@@ -10,7 +10,7 @@ The repository offers the typical structure of separate folders for data, models
 * The _R_ folder includes two analysis scripts (Bayesian random-effects MA_Reproducible.R and Bayesian random-effects NMA_Reproducible.R) which source the model and data scripts and perform all analyses, and the five scripts with the functions to produce the relevant output; namely, the enhanced balloon-plots, the heatmap of robustness, and the bar-plots with the Kullback-Leibler divergence measure for each missingness scenario.
 [JAGS](http://mcmc-jags.sourceforge.net/) must be installed to employ the [R2jags](https://github.com/suyusung/R2jags/issues/) package. First, the user should open the titular Project (.Rproj) to use the functions and data straightforwardly (either after downloading as zip or cloning). 
 
-The next sections briefly illustrate the functions of our novel decision framework for robustness of the primary analysis results with emphasis on the summary treatment effects: the `RobustnessIndex()`, and the `HeatMap.AllComparisons.RI()`.
+The next sections briefly illustrate the functions of our novel decision framework for robustness of the primary analysis results with emphasis on the summary treatment effects: the `RobustnessIndex()`, and the `HeatMap.AllComparisons.RI()`. Finally, we also present a novel plot to illustrate for all re-analysis the estimated summary treatment effects and between-trial variance using the functions `BalloonPlot.Sensitivity.ES()` and `BalloonPlot.Sensitivity.tau2()`, respectively.
 
 ## Robustness Index 
 
@@ -82,11 +82,7 @@ comparison <- matrix(combn(drug.names, 2), nrow = length(combn(drug.names, 2))/2
 
 We provide a separate function to create the __enhanced ballon plot for the between-trial variance__, `BalloonPlot.Sensitivity.tau2()`, and it has the same arguments with the `BalloonPlot.Sensitivity.ES()` function, except for dropping the argument __compar__ and replacing the argument __direction__ with the argument __extent__ to indicate whether there is low statistical heterogeneity (i.e. posterior median of the between-trial variance < median of the selected empirically-based prior distribution for that parameter) or considerable.
 
-The __enhanced balloon plot__ is relevant for every important parameter of the model. For a pairwise meta-analysis, the summary treatment effect and the between-trial variance (under a random-effects model) are the parameters of interest. For a network meta-analysis, the inconsistency factor from the node-splitting approach [1], and the surface under the cumulative ranking curve [2] are additinal parameters of interest. However, the current functions are only applicable for the summary treatment effects and between-trial variance (assumed common in network meta-analysis). In the next version of the function for the enhanced balloon plot, we will consider other model parameters, as well.
+The __enhanced balloon plot__ is relevant for every important parameter of the model. For a pairwise meta-analysis, the summary treatment effect and the between-trial variance (under a random-effects model) are the parameters of interest. For a network meta-analysis, the inconsistency factor from the node-splitting approach, and the surface under the cumulative ranking curve are additinal parameters of interest. However, the current functions are only applicable for the summary treatment effects and between-trial variance (assumed common in network meta-analysis). In the next version of the function for the enhanced balloon plot, we will consider other model parameters, as well.
 
 Last but not least, we are working on bringing all the functions into an R package that will also allow for the joint synthesis of observed and missing outcomes in each trial's arm. 
 
-#### References
-
-1. Dias S, Welton NJ, Caldwell DM, Ades AE. Checking consistency in mixed treatment comparison meta-analysis. Stat Med. 2010; 29(7-8):932-44. 
-2. Salanti G, Ades AE, Ioannidis JPA. Graphical methods and numerical summaries for presenting results from multiple-treatment meta-analysis: an overview and tutorial. J Clin Epidemiol. 2011; 64(2):163–71
