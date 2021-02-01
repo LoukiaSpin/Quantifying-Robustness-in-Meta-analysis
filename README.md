@@ -11,7 +11,7 @@ The repository offers the typical structure of separate folders for data, models
 
 [JAGS](http://mcmc-jags.sourceforge.net/) must be installed to employ the [R2jags](https://github.com/suyusung/R2jags/issues/) package. First, the user should open the titular Project (.Rproj) to use the functions and data straightforwardly (either after downloading as zip or cloning). 
 
-The next sections briefly illustrate the functions of our novel decision framework for robustness of the primary analysis results with emphasis on the summary treatment effects: the `RobustnessIndex()`, and the `HeatMap.AllComparisons.RI()`. Finally, we also present a novel plot to illustrate for all re-analysis the estimated summary treatment effects and between-trial variance using the functions `BalloonPlot.Sensitivity.ES()` and `BalloonPlot.Sensitivity.tau2()`, respectively.
+The next sections briefly illustrate the functions of our novel decision framework for robustness of the primary analysis results with emphasis on the summary treatment effects.
 
 ## Robustness Index 
 
