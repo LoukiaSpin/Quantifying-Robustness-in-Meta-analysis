@@ -60,7 +60,7 @@ The function `HeatMap.AllComparisons.RI()` returns a lower triangular heatmap ma
 
 ## Enhanced Balloon Plot
 
-The function to create the __enhanced balloon plot__ for the summaary treatment effects is `BalloonPlot.Sensitivity.ES()`.
+The function `BalloonPlot.Sensitivity.ES()` to create the __enhanced balloon plot__ for the summaary treatment effects has the following syntax:
 
 Make sure that you have already installed the R package [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) to be able to use the proposed function. The function `BalloonPlot.Sensitivity.ES()` has the following syntax:
 
