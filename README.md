@@ -84,5 +84,5 @@ We provide a separate function to create the __enhanced ballon plot for the betw
 
 The __enhanced balloon plot__ is relevant for every important parameter of the model. For a pairwise meta-analysis, the summary treatment effect and the between-trial variance (under a random-effects model) are the parameters of interest. For a network meta-analysis, the inconsistency factor from the node-splitting approach, and the surface under the cumulative ranking curve are additinal parameters of interest. However, the current functions are only applicable for the summary treatment effects and between-trial variance (assumed common in network meta-analysis). In the next version of the function for the enhanced balloon plot, we will consider other model parameters, as well.
 
-#Last but not least, we are working on bringing all the functions into an R package that will also allow for the joint synthesis of observed and missing outcomes in each #trial's arm. 
+<Last but not least, we are working on bringing all the functions into an R package that will also allow for the joint synthesis of observed and missing outcomes in each trial's arm. >
 
