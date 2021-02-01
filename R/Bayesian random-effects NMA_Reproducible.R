@@ -150,7 +150,7 @@ ggarrange(p5, p8, p7, p6, ncol = 2, nrow = 2, labels = c("A)", "B)", "C)", "D)")
 
 
 ## Enhanced balloon-plot for tau2 (assumed common in the network)
-extent.NMA <- summary(rlnorm(1000, -2.06, 1.51))[3]  # Median of empirically-based prior for 'symptoms reflecting the continuation of condition' and 'pharma vs placebo' [Turner et al. 2015 - PMID: 25475839]
-(p12 <- BalloonPlot.Sensitivity.tau2(tau2.mat = tausq, extent = extent, outcome = "binary", drug.names = drug.names.tau2))
+extent <- summary(rlnorm(1000, -2.06, 1.51))[3]  # Median of empirically-based prior for 'symptoms reflecting the continuation of condition' and 'pharma vs placebo' [Turner et al. 2015 - PMID: 25475839]
+(p9 <- BalloonPlot.Sensitivity.tau2(tau2.mat = tausq, extent = extent, outcome = "binary", drug.names = drug.names.tau2))
 
 
