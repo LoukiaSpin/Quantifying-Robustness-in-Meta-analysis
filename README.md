@@ -9,7 +9,7 @@ The repository offers the typical structure of separate folders for data, models
 * The _models_ folder includes two text files, one for the Bayesian random-effects meta-analysis model of continuous outcome and one for the Bayesian random-effects network meta-analysis model of a binary outcome;
 * The _R_ folder includes two analysis scripts (Bayesian random-effects MA_Reproducible.R and Bayesian random-effects NMA_Reproducible.R) which source the model and data scripts and perform all analyses, and the five scripts with the functions to produce the relevant output; namely, the enhanced balloon-plots, the heatmap of robustness, and the bar-plots with the Kullback-Leibler divergence measure for each missingness scenario.
 
-[JAGS](http://mcmc-jags.sourceforge.net/) must be installed to employ the [R2jags](https://github.com/suyusung/R2jags/issues/) package. First, the user should open the titular Project (.Rproj) to use the functions and data straightforwardly (either after downloading as zip or cloning). 
+[JAGS](http://mcmc-jags.sourceforge.net/) must be installed to employ the [R2jags](https://github.com/suyusung/R2jags/issues/) package. First, the user should open the titular Project (.Rproj) to use the functions and data straightforwardly (either after downloading or cloning). 
 
 The next sections briefly illustrate the functions of our novel decision framework for robustness of the primary analysis results with emphasis on the summary treatment effects.
 
