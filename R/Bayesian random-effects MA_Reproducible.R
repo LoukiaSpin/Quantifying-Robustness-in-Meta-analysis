@@ -11,13 +11,9 @@
 #     Date: October 2020
 #----------------------------------------------------------------------------------------------------------------------------
 
-
-
 ## Load libraries
 list.of.packages <- c("R2jags", "mcmcplots", "ggplot2", "ggthemes", "reshape2", "ggpubr")
 lapply(list.of.packages, require, character.only = TRUE); rm(list.of.packages)
-
-
 
 ## Load functions
 source("./R/kld.robustness.index.R")               
@@ -25,7 +21,6 @@ source("./R/Barplot.Kullback.Leibler.divergence.R")
 source("./R/enhanced.balloon.plot.ES.R")
 source("./R/enhanced.balloon.plot.tau2.R")
  
-
 
 ## Load database as dataframe (each row is a trial)
 (data <- read.table("./data/15106232_Taylor(2009).txt", head = T)) 
@@ -41,7 +36,6 @@ source("./R/enhanced.balloon.plot.tau2.R")
 drug.names <- c("placebo", "inositol") 
 
 
-
 ## Selected predictive prior for tau2 - 'Mental health outcome' outcome type with 'pharma vs PBO' intervention-comparison type (Table 3 in PMID: 25304503)
 mean.tausq <- -2.99 
 sd.tausq <- 2.16
@@ -49,16 +43,12 @@ prec.tausq <- 1/sd.tausq^2
 psi.imdom <- 1
 
 
-
 ## A 2x2 matrix of 25 reference-specific scenarios (PMID: 30223064)
 (scenarios <- c(-2, -1, 0, 1, 2))
 (imdom <- as.matrix(cbind(rep(scenarios, each = 5), rep(scenarios, 5)))) # 2nd column refers to the reference intervention (control in MA)
 
-
-
 ## Prepare parameters for JAGS
 jagsfit <- data.jag <- list()
-
 
 
 ## Calculate time needed for all models
@@ -84,12 +74,10 @@ time.taken <- end.time - start.time
 time.taken     
 
 
-
 ## Check autocorrelation and traceplot in each scenario
 jagsfit.mcmc <- as.mcmc(jagsfit[[1]])                   # For instance, for the first scenario
 autplot1(jagsfit.mcmc[, c("SMD", "tausq")], chain = 3)  # Another instance
 traplot(jagsfit.mcmc, c("SMD", "tausq"))
-
 
 
 ## Results on model parameters of interest
@@ -97,39 +85,28 @@ traplot(jagsfit.mcmc, c("SMD", "tausq"))
 (SMD <- do.call(rbind,lapply(1:length(imdom[, 1]), function(i) jagsfit[[i]]$BUGSoutput$summary["SMD", c("mean", "sd", "2.5%", "97.5%", "Rhat", "n.eff")])))
 (tausq <- do.call(rbind,lapply(1:length(imdom[, 1]), function(i) jagsfit[[i]]$BUGSoutput$summary["tausq", c("50%", "sd", "2.5%", "97.5%", "Rhat", "n.eff")])))
 
-                               
-                               
+                                                              
 ## Optional: save the results as txt 
 write.table(round(SMD, 4), file = "./MA-MOD_SMD.txt", sep = "\t", quote = F)
 write.table(round(tausq, 4), file = "./MA-MOD_tausq.txt", sep = "\t", quote = F)
 
 
-
 ## Calculate the Robustness Index 
 (RI <- RobustnessIndex(ES.mat = SMD, primary.scenar = 13, nt = length(drug.names))$RI)      # primary analysis (here, MAR) is number 13
-
-
 
 ## Enhanced balloon-plot for SMD 
 (p1 <- BalloonPlot.Sensitivity.ES(ES.mat = SMD, compar = 1, outcome = "continuous", direction = "negative", drug.names = drug.names))
 
-
-
 ## Calculate the Kullback-Leibler Divergence (KLD) measure 
 (KLD <- RobustnessIndex(ES.mat = SMD, primary.scenar = 13, nt = length(drug.names))$kldxy)  # primary analysis (here, MAR) is number 13
 
-
-
 ## Bar-plot of KLD measure for all scenarios
 (p2 <- Barplot.KLD(unlist(KLD), outcome = "continuous", title = "", ylimit = 0.30) + theme(plot.title = element_blank()))
-
-
 
 ## Bring both plots together
 ggarrange(p1, p2, ncol = 2, labels = c("A)", "B)"))
 
 
-
 ## Enhanced balloon-plot for tau2
 extent <- exp(0.049)   # Median of empirically-based prior for 'mental health indicators' and 'pharma vs placebo' [Rhodes et al. 2015 - PMID: 25304503 (Table 3)]
-(p3 <- BalloonPlot.Sensitivity.tau2(tau2.mat = tausq, extent = extent, outcome = "continuous", drug.names = drug.names))
+(p3    <- BalloonPlot.Sensitivity.tau2(tau2.mat = tausq, extent = extent, outcome = "continuous", drug.names = drug.names))
