@@ -60,24 +60,25 @@ The function `HeatMap.AllComparisons.RI()` returns a lower triangular heatmap ma
 
 ## Enhanced Balloon Plot
 
-The function `BalloonPlot.Sensitivity.ES()` to create the __enhanced balloon plot__ for the summaary treatment effects has the following syntax:
-
-Make sure that you have already installed the R package [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) to be able to use the proposed function. The function `BalloonPlot.Sensitivity.ES()` has the following syntax:
+The function `BalloonPlot.Sensitivity.ES()` creates the __enhanced balloon plot__ for the summary treatment effects and has the following syntax:
 
 ```r
 BalloonPlot.Sensitivity.ES(ES.mat, compar, outcome, direction, drug.names)
 ```
 
+Make sure that you have already installed the R package [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) to be able to use the proposed function. 
+
 ### Explaining the arguments
 
 * ES.mat: the same with the function `RobustnessIndex()`.
-* compar: A number that indicates the __comparison of interest__. Evidently, for a pairwise meta-analysis, `compar=1`. In the case of a >network meta-analysis, the user should specify the number that corresponds to the comparison of interest. To find the number that corresponds to the comparison of interest, you should use the vector with the names of the interventions (i.e. the argument __drug.names__) to create a matrix of the unique possible pairwise comparisons of T interventions in the investigated network:
+* compar: A number that indicates the __comparison of interest__. Evidently, for a pairwise meta-analysis, `compar=1`. In the case of a network meta-analysis, the user should specify the number that corresponds to the comparison of interest. To find the number that corresponds to the comparison of interest, you should use the vector with the names of the interventions (i.e. the argument __drug.names__) to create a matrix of the unique possible pairwise comparisons of T interventions in the investigated network:
 
 ```r
 comparison <- matrix(combn(drug.names, 2), nrow = length(combn(drug.names, 2))/2, ncol = 2, byrow = T)
 ```
+
 * direction: A character to specify the __type of outcome__. Use `direction="positive"` for a beneficial outcome, and`direction="negative"` for a harmful outcome.
-* drug.names: A vector with __the names of the interventions__ compared. The interventions should be in the same order that you considered to run pairwise or network meta-analysis. This is important particularly in the case of network meta-analysis so that you do not match the balloons with the wrong comparisons.
+* drug.names: the same with the function `HeatMap.AllComparisons.RI()`.
 
 ### Important notes 
 
