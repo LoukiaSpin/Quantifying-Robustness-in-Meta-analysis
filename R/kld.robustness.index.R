@@ -55,7 +55,7 @@ RobustnessIndex <- function(ES.mat, primary.scenar, nt){
       kldxy[[i]][j] <- KLD.measure.univ(mean[j, i], sd[j, i], mean[primary.scenar, i], sd[primary.scenar, i])[[1]]
       
     }
-    kldxy[[i]][13] <- 0  ## This refers to the primary analysis (here, the MAR assumption)
+    kldxy[[i]][primary.scenar] <- 0  ## This refers to the primary analysis (here, the MAR assumption)
     
     ## Returns the Robustness Index of comparison i across all informative scenarios 
     RI[i] <- sqrt(round(t(kldxy[[i]][-primary.scenar]) %*% kldxy[[i]][-primary.scenar], 3))
